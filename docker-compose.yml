@@ -10,7 +10,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./project/project-fit/2-source:/var/www/html
+      - ./project:/var/www/html
       - ./config/backend/php.ini:/usr/local/etc/php/php.ini
       - ./config/httpd_security.conf:/etc/apache2/conf-available/security.conf
     working_dir: /var/www/html
@@ -19,7 +19,7 @@ services:
     # depends_on:
     #   - mssql
     restart: always
-  
+
   web-mysql:
     container_name: c-web-mysql
     image: "mysql:5.7.43"
